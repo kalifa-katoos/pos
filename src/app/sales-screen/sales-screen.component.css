@@ -1,0 +1,90 @@
+.sales-screen-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.product-display {
+  flex: 2;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+
+.product-display ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-display li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-summary {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+
+.order-summary ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-summary li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-summary li input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.order-summary .total {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.payment-options {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-options button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}

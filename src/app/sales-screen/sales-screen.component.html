@@ -1,0 +1,63 @@
+<div class="sales-screen-container">
+  <div class="header">
+    <h1>{{ 'SALES_SCREEN_TITLE' | translate }}</h1>
+    <button (click)="switchLanguage(currentLanguage === 'en' ? 'ar' : 'en')">
+      {{ currentLanguage === 'en' ? ('ARABIC' | translate) : ('ENGLISH' | translate) }}
+    </button>
+  </div>
+
+  <div class="product-search">
+    <input type="text" placeholder="{{ 'SEARCH_PRODUCTS' | translate }}" (input)="searchProducts($event.target.value)">
+  </div>
+
+  <div class="product-display">
+    <h2>{{ 'PRODUCTS' | translate }}</h2>
+    <ul>
+      <li *ngFor="let product of filteredProducts">
+        {{ product.name }} - {{ product.price }}
+        <button (click)="addToCart(product)">{{ 'ADD_TO_CART' | translate }}</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="order-summary">
+    <h2>{{ 'ORDER_SUMMARY' | translate }}</h2>
+    <ul>
+      <li *ngFor="let item of cartItems">
+        {{ item.product.name }} - {{ 'QUANTITY' | translate }}:
+        <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item, item.quantity)">
+        - {{ 'PRICE' | translate }}: {{ item.product.price * item.quantity }}
+        <button (click)="removeFromCart(item)">{{ 'REMOVE' | translate }}</button>
+      </li>
+    </ul>
+    <div class="total">
+      {{ 'TOTAL' | translate }}: {{ totalAmount }}
+    </div>
+    <div class="discount">
+      {{ 'DISCOUNT' | translate }} (%):
+      <input type="number" [(ngModel)]="discountPercentage" (change)="updateTotal()">
+      - {{ 'DISCOUNT_AMOUNT' | translate }}: {{ discountAmount }}
+    </div>
+    <div class="tax">
+      {{ 'TAX' | translate }} (%):
+      <input type="number" [(ngModel)]="taxPercentage" (change)="updateTotal()">
+      - {{ 'TAX_AMOUNT' | translate }}: {{ taxAmount }}
+    </div>
+    <div class="final-total">
+      {{ 'FINAL_TOTAL' | translate }}: {{ finalTotal }}
+    </div>
+  </div>
+
+  <div class="payment-options">
+    <h2>{{ 'PAYMENT_OPTIONS' | translate }}</h2>
+    <button>{{ 'CASH' | translate }}</button>
+    <button>{{ 'CREDIT_CARD' | translate }}</button>
+    <button>{{ 'MADA' | translate }}</button>
+    <button>{{ 'APPLE_PAY' | translate }}</button>
+    <button>{{ 'GOOGLE_PAY' | translate }}</button>
+  </div>
+
+  <div class="receipt-generation">
+    <button (click)="generateReceipt()">{{ 'GENERATE_RECEIPT' | translate }}</button>
+  </div>
+</div>
